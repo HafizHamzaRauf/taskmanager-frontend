@@ -30,15 +30,15 @@ const styles = {
     },
   },
 };
-const HeroNav = () => {
+const HeroNav = ({ setIsLogin }) => {
   const navigate = useNavigate();
   const signUpHandler = (e) => {
+    setIsLogin(false);
     navigate("/signup");
     // Reload the current web page
-    window.location.reload();
   };
   const loginLinkHandler = () => {
-    window.location.href = "/login";
+    setIsLogin(true);
     navigate("/login");
   };
   return (

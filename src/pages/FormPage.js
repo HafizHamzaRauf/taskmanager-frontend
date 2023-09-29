@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "../components/Hero";
 import theme from "../theme";
 import { Box } from "@mui/material";
@@ -14,10 +14,16 @@ const styles = {
   },
 };
 const FormPage = () => {
+  const isLoginRoute = window.location.pathname === "/login";
+
+  const [isLogin, setIsLogin] = useState(isLoginRoute);
+  const loginModifier = (value) => {
+    setIsLogin(value);
+  };
   return (
     <Box sx={styles.heroBody}>
-      <HeroNav></HeroNav>
-      <Form></Form>
+      <HeroNav setIsLogin={loginModifier}></HeroNav>
+      <Form setIsLogin={loginModifier} isLogin={isLogin}></Form>
     </Box>
   );
 };

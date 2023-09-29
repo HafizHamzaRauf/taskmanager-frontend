@@ -13,18 +13,15 @@ import { BACKEND_URL, addUserInfo } from "../store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { updateStorage } from "../store/persist";
 
-function Form() {
+function Form({ isLogin, setIsLogin }) {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoginRoute = location.pathname === "/login";
 
-  const [isLogin, setIsLogin] = useState(isLoginRoute);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState(""); // Error message state
-  const user = useSelector((state) => state.auth.user);
   const boardState = useSelector((state) => state.board);
   const handleSwitch = () => {
     setIsLogin(!isLogin);

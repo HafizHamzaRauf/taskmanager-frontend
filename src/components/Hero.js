@@ -7,7 +7,6 @@ const Hero = () => {
   const navigate = useNavigate();
   const signUpHandler = (e) => {
     navigate("/signup");
-    window.location.reload();
   };
   return (
     <Box
