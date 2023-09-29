@@ -38,8 +38,8 @@ const HeroNav = () => {
     window.location.reload();
   };
   const loginLinkHandler = () => {
+    window.location.href = "/login";
     navigate("/login");
-    window.location.reload();
   };
   return (
     <Box sx={styles.navigation}>
